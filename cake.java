@@ -53,13 +53,6 @@ class cake extends JFrame
     
     //BountyChocolate
     BountyChocolate =new JLabel("Bounty Chocolate");
-    JPanel bc= new JPanel();
-    bc.add(BountyChocolate);
-    BufferedImage bci = ImageIO.read(new File("D:\\oop JAVA\\cake delivery\\bc.jpg"));
-    ImageIcon bcicon = new ImageIcon(bci);
-    Image bcc = alicon.getImage().getScaledInstance(15, 15,Image.SCALE_DEFAULT);
-		JLabel picLabelbc = new JLabel(new ImageIcon(bci));
-		bc.add(picLabelbc);
 		f.add(bc);
     f.setLayout(new GridLayout());
     
