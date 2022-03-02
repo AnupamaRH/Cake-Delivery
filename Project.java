@@ -123,8 +123,8 @@ public class Project extends JFrame
            if(emailId.equals(t1.getText())&& password.equals(password1)) {
                JOptionPane.showMessageDialog(b1, "Welcome");
                f.dispose();
-              // explore comp=new explore(emailId);
-              // comp.setVisible(true);
+              cake comp=new cake(emailId);
+              comp.setVisible(true);
                flag=0;
                break;
            }
@@ -146,8 +146,8 @@ public class Project extends JFrame
              if(t1.getText().equals(emailid) && password.equals(password1)) {
                  JOptionPane.showMessageDialog(b1, "Welcome");
                  f.dispose();
-                 //explore exploring=new explore(emailid);
-                 //exploring.setVisible(true);
+                 cake exploring=new cake(emailid);
+                 exploring.setVisible(true);
 				 flag=0;
                  break;
              }
