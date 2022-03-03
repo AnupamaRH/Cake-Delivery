@@ -93,15 +93,15 @@ public class Project extends JFrame
 			}
 		});
         b1.addActionListener(new ActionListener() 
-{
-    public void actionPerformed(ActionEvent e) {
+        {
+        public void actionPerformed(ActionEvent e) {
         String emailId = t1.getText();
         String password =new String(tp.getPassword());
         String emailid,password1;
 
         try
         {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("oracle.jdbc.driver.OracleDriver");
         }
         catch(Exception ex)
         {
@@ -109,10 +109,10 @@ public class Project extends JFrame
         }
         try {
             ResultSet rs;
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://ziggy.db.elephantsql.com/","neyalvyx","Wi79_4saB3Ys3HYCbvzmjod1Lrme4E_1");
+            Connection connection = DriverManager.getConnection("jdbc:oracle:thin:system/oracle@localhost:1521:xe");
             PreparedStatement pst = null;
             
-            pst = connection.prepareStatement("SELECT * FROM register;");
+            pst = connection.prepareStatement("SELECT * FROM register");
 //                  }
           rs = pst.executeQuery();
           while(rs.next())
@@ -123,7 +123,7 @@ public class Project extends JFrame
            if(emailId.equals(t1.getText())&& password.equals(password1)) {
                JOptionPane.showMessageDialog(b1, "Welcome");
                f.dispose();
-              cake comp=new cake(emailId);
+              caketest comp=new caketest();
               comp.setVisible(true);
                flag=0;
                break;
@@ -135,7 +135,7 @@ public class Project extends JFrame
           }
             
           if(flag==-1) {
-            pst = connection.prepareStatement("SELECT * FROM register;");
+            pst = connection.prepareStatement("SELECT * FROM register");
 //                    }
             rs = pst.executeQuery();
             while(rs.next())
@@ -146,7 +146,7 @@ public class Project extends JFrame
              if(t1.getText().equals(emailid) && password.equals(password1)) {
                  JOptionPane.showMessageDialog(b1, "Welcome");
                  f.dispose();
-                 cake exploring=new cake(emailid);
+                 caketest exploring=new caketest();
                  exploring.setVisible(true);
 				 flag=0;
                  break;
