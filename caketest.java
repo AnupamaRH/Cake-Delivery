@@ -67,28 +67,39 @@ public class caketest extends JFrame
     {
         public void actionPerformed(ActionEvent e) 
         {
-          //venue
-          for (Enumeration<AbstractButton> buttons = cake_grp.getElements(); buttons.hasMoreElements();) 
+          try
           {
-            AbstractButton button = buttons.nextElement();
-    
-            if (button.isSelected())
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+          }
+          catch(Exception ex)
+          {
+           System.out.println("not found");
+          }
+          try 
+          {
+            ResultSet rs;
+            Connection conn = DriverManager.getConnection("jdbc:oracle:thin:system/oracle@localhost:1521:xe");
+          //  java.sql.Statement sta=conn.createStatement();
+          //java.sql.ResultSet rst=sta.executeQuery("SELECT date,venue from exploredb");
+          //selection of cake
+            for (Enumeration<AbstractButton> buttons = cake_grp.getElements(); buttons.hasMoreElements();) 
             {
+              AbstractButton button = buttons.nextElement();
+              if (button.isSelected())
+              {
                 ven=button.getText();
                 qtytaken=qty.getText();
                 System.out.print(ven+qtytaken);
-
+              }
             }
           }
-          
+          catch(Exception e1)
+          {
+            System.out.println("ERROR 1");
+          }   
         }
     });
 }
-
-
-
-
-    
     public static void main(String[] args)
     {
         caketest cake = new caketest();

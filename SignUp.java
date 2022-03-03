@@ -115,8 +115,8 @@ public class SignUp extends JFrame
                 //String name_database,email,password1;
 				try
         		{
-            		 Class.forName("org.postgresql.Driver");
-				//	Class.forName("oracle.jdbc.driver.OracleDriver");
+            		 //Class.forName("org.postgresql.Driver");
+					Class.forName("oracle.jdbc.driver.OracleDriver");
         		}
         		catch(Exception ex)
         		{
@@ -124,8 +124,9 @@ public class SignUp extends JFrame
         		}
                 try {
                 	ResultSet rs;
-                   Connection connection = DriverManager.getConnection("jdbc:postgresql://ziggy.db.elephantsql.com/","neyalvyx","Wi79_4saB3Ys3HYCbvzmjod1Lrme4E_1");
-					//Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+                  // Connection connection = DriverManager.getConnection("jdbc:postgresql://ziggy.db.elephantsql.com/","neyalvyx","Wi79_4saB3Ys3HYCbvzmjod1Lrme4E_1");
+				  Connection connection = DriverManager.getConnection("jdbc:oracle:thin:system/oracle@localhost:1521:xe");	
+				  //Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
                     Statement st = null;
                     
                     st = connection.createStatement();
